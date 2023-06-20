@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-08 16:26:41
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-08 19:54:31
+ * @LastEditTime: 2023-06-13 17:23:26
  * @Description: 茶泡饭的完美代码
 -->
 
@@ -18,7 +18,7 @@
 
 2. 手写 deepClone
 
-```
+```js
 const deepClone = (object) => {
     // 解决循环引用问题
     const m = new WeakMap();

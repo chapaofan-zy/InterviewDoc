@@ -54,9 +54,10 @@
     Number.MIN_VALUE === 5e-324 // 趋近于0，而不是负无穷
     -1 / 0 === -Infinity
 
-```
-typeof Infinity === 'number'
-typeof NaN === 'number'
+```js
+typeof Infinity === "number";
+
+typeof NaN === "number";
 ```
 
     Number.MAX_SAFE_INTEGER === 9007199254740991 // 2^53 - 1

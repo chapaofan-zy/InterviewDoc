@@ -2,13 +2,13 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-08 14:48:14
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-08 14:59:31
+ * @LastEditTime: 2023-06-13 17:22:41
  * @Description: 茶泡饭的完美代码
 -->
 
 ## AJAX
 
-```
+```js
 const xhr = new XMLHttpRequest();
 xhr.open(method, url, [async], ...);
 xhr.onreadystatechange = () => {

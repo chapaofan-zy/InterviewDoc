@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-08 11:21:40
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-08 14:47:11
+ * @LastEditTime: 2023-06-13 17:23:36
  * @Description: 茶泡饭的完美代码
 -->
 
@@ -16,13 +16,13 @@
 
    - 两个都为简单类型，字符串和布尔值都会转换成数值，再比较
 
-   ```
-    1 == true; // true
-    0 == false; // true
-    2 == true; // false
-    '' == false; // true
-    '0' == false; // true
-    false == 'false'; // false
+   ```js
+   1 == true; // true
+   0 == false; // true
+   2 == true; // false
+   "" == false; // true
+   "0" == false; // true
+   false == "false"; // false
    ```
 
    - 简单类型与引用类型比较，对象转化成其原始类型的值（调用 valueOf()），再比较
