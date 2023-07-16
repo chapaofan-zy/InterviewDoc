@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-08 15:14:02
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-08 15:46:08
+ * @LastEditTime: 2023-07-09 17:14:15
  * @Description: 茶泡饭的完美代码
  */
 Function.prototype.myCall = function (...rest) {

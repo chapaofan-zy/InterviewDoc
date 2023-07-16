@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-09 10:08:07
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-13 17:24:33
+ * @LastEditTime: 2023-07-13 14:39:12
  * @Description: 茶泡饭的完美代码
 -->
 
@@ -11,7 +11,7 @@
 ### 防抖
 
 ```js
-const debounce1 = (fn, delay = 500) => {
+function debounce1(fn, delay = 500) {
   let timer;
   return function (...rest) {
     const that = this;
@@ -23,7 +23,7 @@ const debounce1 = (fn, delay = 500) => {
 };
 
 // 立即执行
-const debounce2 = (fn, delay = 500, immediate = false) => {
+function debounce2(fn, delay = 500, immediate = false) {
   let timer;
   let flag = false;
   return function (...rest) {
@@ -48,7 +48,7 @@ const debounce2 = (fn, delay = 500, immediate = false) => {
 
 ```js
 // 时间戳
-const throttle1 = (fn, delay = 500) => {
+function throttle1(fn, delay = 500) {
   let oldDate = Date.now();
   return function (...rest) {
     const that = this;
@@ -61,7 +61,7 @@ const throttle1 = (fn, delay = 500) => {
 };
 
 // 计时器
-const throttle2 = (fn, delay = 500) => {
+function throttle2(fn, delay = 500) {
   let timer;
   return function (...rest) {
     const that = this;

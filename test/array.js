@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-10 11:31:20
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-10 16:15:54
+ * @LastEditTime: 2023-07-09 17:07:32
  * @Description: 茶泡饭的完美代码
  */
 const flat = (arr) => {

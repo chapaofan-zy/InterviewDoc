@@ -2,14 +2,14 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-08 19:18:10
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-08 19:52:16
+ * @LastEditTime: 2023-07-11 21:14:47
  * @Description: 茶泡饭的完美代码
  */
 const deepClone = (object) => {
     // 解决循环引用问题
     const m = new WeakMap();
     const fn = (obj) => {
-        if (m.get(obj)) return obj;
+        if (m.get(obj)) return m.get(obj);
         else {
             if (typeof obj !== 'object' || obj === null) return obj;
             const res = obj instanceof Array ? [] : {};
@@ -42,7 +42,11 @@ const deepClone = (object) => {
 const obj = {
     a: {
         b: 1
-    }
+    },
+    c: [1],
+    e: null,
+    f: undefined
 }
+obj.d = obj
 
-console.log(deepCopy(null));
+console.log(deepClone(obj));

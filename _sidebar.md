@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-07 19:14:17
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-06-13 20:13:07
+ * @LastEditTime: 2023-07-15 20:11:11
  * @Description: 茶泡饭的完美代码
 -->
 
@@ -19,7 +19,16 @@
   - [new 操作符](/JavaScript/New.md)
   - [typeof/instanceof](/JavaScript/Typeof.md)
   - [Array](/JavaScript/Array.md)
+  - [Promise](/JavaScript/Promise.md)
+  - [事件代理](/JavaScript/Event.md)
+  - [继承](/JavaScript/Extend.md)
 - React
   - [Fiber](/React/Fiber.md)
 - Browser
   - [cookie/localstorage/sessionstorage](/Browser/Storage.md)
+  - [HTTP](/Browser/HTTP.md)
+  - [URL](/Browser/URL.md)
+- CSS
+  - [选择器](/CSS/selector.md)
+  - [画三角形](/CSS/triangle.md)
+  - [Flex](/CSS/flex.md)
