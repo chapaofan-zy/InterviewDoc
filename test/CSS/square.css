@@ -1,0 +1,11 @@
+.main {
+  height: 300px;
+  width: 500px;
+  background-color: rgb(245, 255, 177);
+}
+
+.child {
+  background-color: rgb(148, 219, 219);
+  padding-bottom: 50%;
+  width: 50%;
+}

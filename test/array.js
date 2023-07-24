@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-10 11:31:20
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-07-09 17:07:32
+ * @LastEditTime: 2023-07-21 15:42:45
  * @Description: 茶泡饭的完美代码
  */
 const flat = (arr) => {
@@ -30,3 +30,23 @@ Array.prototype.myReduce = function (fn, defaultValue) {
 
 console.log([1, 2, 3].myReduce((a, b) => a + b, 1));
 console.log([1, 2, 3].myReduce((a, b) => a + b));
+
+const setFlat = (arr) => {
+    if (!Array.isArray(arr)) return [arr];
+    const res = new Set();
+    arr.forEach((e) => {
+        if (!Array.isArray) res.add(e);
+        else {
+            const tmp = [...setFlat(e)];
+            tmp.forEach((el) => res.add(el));
+        }
+    });
+    return [...res].sort((a, b) => a - b);
+}
+const setArr = [
+    [1, 2, 2],
+    [3, 4, 5, 5],
+    [6, 7, 8, 9, [11, 12, [12, 13, [14]]]], 10
+];
+
+console.log('set', setFlat(setArr));

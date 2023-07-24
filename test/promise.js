@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-07-04 13:36:12
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-07-15 19:16:00
+ * @LastEditTime: 2023-07-21 20:44:29
  * @Description: 茶泡饭的完美代码
  */
 export default class MyPromise {
@@ -116,3 +116,92 @@ const resolvePromise = (res, p, resolve, reject, state) => {
 //     console.log(val);
 //     return p1;
 // });
+
+class MP {
+    constructor(executor) {
+        this.value = undefined;
+        this.state = 'pending';
+        this.error = undefined;
+        this.failCb = [];
+        this.successCb = [];
+        try {
+            executor(this.resolve, this.reject);
+        } catch(e) {
+            this.reject(e);
+        }
+    }
+
+    resolve = (val) => {
+        if (this.state !== 'pending') return;
+        this.state = 'fulfilled';
+        this.value = val;
+        while (this.successCb.length > 0) this.successCb.shift()(val);
+    }
+
+    reject = (err) => {
+        if (this.state !== 'pending') return;
+        this.error = err;
+        this.state = 'rejected';
+        while(this.failCb.length > 0) this.failCb.shift()(err);
+    }
+
+    then(sCb, fCb) {
+        const resolvePromise = (res, p, resolve, reject, state) => {
+            if (res === p) throw 'same promise';
+            if (res instanceof MP) res.then((v) => resolve(v), e => reject(e));
+            else state === 'fulfilled' ? resolve(res) : reject(res);
+        }
+        const p = new MP((resolve, reject) => {
+            setTimeout(() => {
+                if (this.state === 'fulfilled') {
+                    const res = sCb(this.value);
+                    resolvePromise(res, p, resolve, reject, 'fulfilled');
+                }
+                if (this.state === 'rejected') {
+                    const res = fCb(this.error);
+                    resolvePromise(res, p, resolve, reject, 'rejected');
+                }
+                if (this.state === 'pending') {
+                    this.successCb.push(() => {
+                        const res = sCb(this.value);
+                    resolvePromise(res, p, resolve, reject, 'fulfilled');
+                    });
+                    this.failCb.push(() => {
+                        const res = fCb(this.error);
+                    resolvePromise(res, p, resolve, reject, 'rejected');
+                    })
+                }
+            });
+        });
+        return p;
+    }
+
+    finally(cb) {
+        return this.then((v) => {
+            MP.resolve(cb()).then(() => v);
+        }, (e) => {
+            MP.resolve(cb()).then(() => { throw e });
+        })
+    }
+
+    static resolve(p) {
+        if (p instanceof MP) return p;
+        return new MP((resolve) => resolve(p));
+    }
+
+    static all(arr) {
+        const res = [];
+        let count = 0;
+        return new Promise((resolve, reject) => {
+            arr.forEach((e) => {
+                MP.resolve(e).then((v, i) => {
+                    res[i] = v;
+                    count++;
+                    if (count === arr.length) resolve(res);
+                }, (e) => {
+                    reject(e);
+                });
+            })
+        })
+    }
+}

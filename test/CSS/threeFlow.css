@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height: 300px;
+  background-color: blanchedalmond;
+}
+
+.footer {
+  height: 300px;
+  background-color: blueviolet;
+}
+
+.left {
+  width: 300px;
+  height: 500px;
+  background-color: aliceblue;
+}
+
+.main {
+  display: flex;
+}
+
+.child {
+  flex: 1;
+}
+
+.right {
+  width: 300px;
+  /* height: 500px; */
+  background-color: rgb(196, 255, 255);
+}
+
+/* .m100 {
+  margin-top: 100px;
+  background-color: red;
+  margin-bottom: 100px;
+}
+
+.m-50 {
+  background-color: yellow;
+  margin-top: -50px;
+} */
+
+.m100 {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  /* margin-bottom: -50px; */
+  margin-top: 100px;
+}
+
+.m-50 {
+  background-color: yellow;
+  width: 50px;
+  height: 50px;
+  margin-top: -30px;
+}

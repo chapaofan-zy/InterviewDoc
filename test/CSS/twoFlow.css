@@ -1,0 +1,13 @@
+.left {
+  float: left;
+  width: 400px;
+  height: 500px;
+  background-color: rgb(177, 219, 247);
+}
+
+.main {
+  /* margin-left: 400px; */
+  overflow: hidden;
+  height: 500px;
+  background-color: rgb(221, 177, 247);
+}
