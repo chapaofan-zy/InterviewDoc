@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-07-13 19:29:44
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-07-13 19:41:13
+ * @LastEditTime: 2023-07-26 18:13:52
  * @Description: 茶泡饭的完美代码
 -->
 
@@ -16,15 +16,13 @@
 
 - 认为每台服务器绑定唯一的 ip
 
-- 使用 If-Modified-Since,Expires 作为缓存控制策略
-
 ### 1.1
 
 - 默认支持长连接 Connection: keep-alive
 
 - 满足不用等待上一次请求结果，可以继续发送请求，但服务器必须按顺序返回请求结果
 
-- 新增更多缓存控制策略 If-Unmodified-Since, If-Match, If-None-Match, E-tag 等
+- 新增更多缓存控制策略 If-modified-Since, Last-modified, If-None-Match, E-tag 等
 
 - 支持只发送 header 信息
 

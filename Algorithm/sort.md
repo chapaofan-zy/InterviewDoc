@@ -43,14 +43,14 @@ const quickSort2 = (arr, l, r) => {
 
 ```js
 const selectSort = (arr) => {
-  for (let i = 0; i < arr.length - 1; i++) {
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
     for (let j = i + 1; j < arr.length; j++) {
-      if (arr[j] < arr[i]) {
-        const tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-      }
+      if (arr[j] < arr[min]) min = j;
     }
+    const tmp = arr[min];
+    arr[min] = arr[i];
+    arr[i] = tmp;
   }
   return arr;
 };
@@ -81,29 +81,29 @@ const bubbleSort = (arr) => {
 
 ```js
 const insertSort1 = (arr) => {
-    if (arr.length <= 1) return arr;
-    const res = [arr[0]];
-    for (let i = 1; i < arr.length; i++) {
-        let j = 0;
-        while (arr[i] > res[j]) j++;
-        res.splice(j, 0, arr[i]);
-    }
-    return res;
-}
+  if (arr.length <= 1) return arr;
+  const res = [arr[0]];
+  for (let i = 1; i < arr.length; i++) {
+    let j = 0;
+    while (arr[i] > res[j]) j++;
+    res.splice(j, 0, arr[i]);
+  }
+  return res;
+};
 
 const insertSort2 = (arr) => {
-    if (arr.length <= 1) return arr;
-    for (let i = 1; i < arr.length; i++) {
-        const tmp = arr[i];
-        let pre = i - 1;
-        while (pre >= 0 && tmp < arr[pre]) {
-            arr[pre + 1] = arr[pre];
-            pre--;
-        }
-        arr[pre + 1] = tmp;
+  if (arr.length <= 1) return arr;
+  for (let i = 1; i < arr.length; i++) {
+    const tmp = arr[i];
+    let pre = i - 1;
+    while (pre >= 0 && tmp < arr[pre]) {
+      arr[pre + 1] = arr[pre];
+      pre--;
     }
-    return arr;
-}
+    arr[pre + 1] = tmp;
+  }
+  return arr;
+};
 ```
 
 ---
@@ -112,19 +112,23 @@ const insertSort2 = (arr) => {
 
 ```js
 const shellSort = (arr) => {
-    for (let gap = Math.floor(arr.length / 2); gap > 0; gap = Math.floor(gap / 2)) {
-        for (let i = gap; i < arr.length; i++) {
-            const tmp = arr[i];
-            let pre = i - gap;
-            while (arr[pre] > tmp && pre >= 0) {
-                arr[pre + gap] = arr[pre];
-                pre = pre - gap;
-            }
-            arr[pre + gap] = tmp;
-        }
+  for (
+    let gap = Math.floor(arr.length / 2);
+    gap > 0;
+    gap = Math.floor(gap / 2)
+  ) {
+    for (let i = gap; i < arr.length; i++) {
+      const tmp = arr[i];
+      let pre = i - gap;
+      while (arr[pre] > tmp && pre >= 0) {
+        arr[pre + gap] = arr[pre];
+        pre = pre - gap;
+      }
+      arr[pre + gap] = tmp;
     }
-    return arr;
-}
+  }
+  return arr;
+};
 ```
 
 ---
@@ -133,19 +137,19 @@ const shellSort = (arr) => {
 
 ```js
 const mergeSort = (arr) => {
-    if (arr.length <= 1) return arr;
-    const merge = (left, right) => {
-        const res = [];
-        while (left.length > 0 && right.length > 0) {
-            left[0] <= right[0] ? res.push(left.shift()) : res.push(right.shift());
-        }
-        while (left.length > 0) res.push(left.shift());
-        while (right.length > 0) res.push(right.shift());
-        return res;
+  if (arr.length <= 1) return arr;
+  const merge = (left, right) => {
+    const res = [];
+    while (left.length > 0 && right.length > 0) {
+      left[0] <= right[0] ? res.push(left.shift()) : res.push(right.shift());
     }
-    const m = Math.floor(arr.length / 2);
-    const l = mergeSort(arr.slice(0, m));
-    const r = mergeSort(arr.slice(m));
-    return merge(l, r);
-}
+    while (left.length > 0) res.push(left.shift());
+    while (right.length > 0) res.push(right.shift());
+    return res;
+  };
+  const m = Math.floor(arr.length / 2);
+  const l = mergeSort(arr.slice(0, m));
+  const r = mergeSort(arr.slice(m));
+  return merge(l, r);
+};
 ```

@@ -39,14 +39,14 @@ const quickSort2 = (arr, l, r) => {
 
 // 选择
 const selectSort = (arr) => {
-    for (let i = 0; i < arr.length - 1; i++) {
+    for (let i = 0; i < arr.length; i++) {
+        let min = i;
         for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[i]) {
-                const tmp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = tmp;
-            }
+            if (arr[j] < arr[min]) min = j;
         }
+        const tmp = arr[min];
+        arr[min] = arr[i];
+        arr[i] = tmp;
     }
     return arr;
 }
