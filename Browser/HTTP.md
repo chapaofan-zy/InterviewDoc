@@ -24,7 +24,7 @@
 
 - 满足不用等待上一次请求结果，可以继续发送请求，但服务器必须按顺序返回请求结果
 
-- 新增更多缓存控制策略 If-Unmodified-Since, If-Match, If-None-Match， E-tag 等
+- 新增更多缓存控制策略 If-Unmodified-Since, If-Match, If-None-Match, E-tag 等
 
 - 支持只发送 header 信息
 

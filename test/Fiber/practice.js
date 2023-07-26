@@ -55,11 +55,18 @@ function beginWork(fiber) {
     }
 }
 
-/* function completeUnitOfWork(fiber) {
-    if (fiber.return) {
-        if (fiber.return)
+function completeUnitOfWork(fiber) {
+    const returnFiber = fiber.return;
+    if (returnFiber) {
+        if (!returnFiber.firstEffect) returnFiber.firstEffect = fiber.firstEffect;
+        if (returnFiber.lastEffect) {
+            returnFiber.lastEffect.nextEffect = fiber;
+        } else {
+            returnFiber.firstEffect = fiber;
+        }
+        returnFiber.lastEffect = fiber;
     }
-} */
+}
 
 function commitRoot() {
     let effect = workInProgressRoot.firstEffect;

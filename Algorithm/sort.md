@@ -80,14 +80,72 @@ const bubbleSort = (arr) => {
 ### 插入
 
 ```js
-const insertSort = (arr) => {
-  if (arr.length <= 1) return arr;
-  const res = [arr[0]];
-  for (let i = 1; i < arr.length; i++) {
-    let j = 0;
-    while (arr[i] > res[j]) j++;
-    res.splice(j, 0, arr[i]);
-  }
-  return res;
-};
+const insertSort1 = (arr) => {
+    if (arr.length <= 1) return arr;
+    const res = [arr[0]];
+    for (let i = 1; i < arr.length; i++) {
+        let j = 0;
+        while (arr[i] > res[j]) j++;
+        res.splice(j, 0, arr[i]);
+    }
+    return res;
+}
+
+const insertSort2 = (arr) => {
+    if (arr.length <= 1) return arr;
+    for (let i = 1; i < arr.length; i++) {
+        const tmp = arr[i];
+        let pre = i - 1;
+        while (pre >= 0 && tmp < arr[pre]) {
+            arr[pre + 1] = arr[pre];
+            pre--;
+        }
+        arr[pre + 1] = tmp;
+    }
+    return arr;
+}
+```
+
+---
+
+### 希尔
+
+```js
+const shellSort = (arr) => {
+    for (let gap = Math.floor(arr.length / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (let i = gap; i < arr.length; i++) {
+            const tmp = arr[i];
+            let pre = i - gap;
+            while (arr[pre] > tmp && pre >= 0) {
+                arr[pre + gap] = arr[pre];
+                pre = pre - gap;
+            }
+            arr[pre + gap] = tmp;
+        }
+    }
+    return arr;
+}
+```
+
+---
+
+### 归并
+
+```js
+const mergeSort = (arr) => {
+    if (arr.length <= 1) return arr;
+    const merge = (left, right) => {
+        const res = [];
+        while (left.length > 0 && right.length > 0) {
+            left[0] <= right[0] ? res.push(left.shift()) : res.push(right.shift());
+        }
+        while (left.length > 0) res.push(left.shift());
+        while (right.length > 0) res.push(right.shift());
+        return res;
+    }
+    const m = Math.floor(arr.length / 2);
+    const l = mergeSort(arr.slice(0, m));
+    const r = mergeSort(arr.slice(m));
+    return merge(l, r);
+}
 ```

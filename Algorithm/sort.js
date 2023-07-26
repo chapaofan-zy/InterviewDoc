@@ -66,7 +66,7 @@ const bubbleSort = (arr) => {
 }
 
 // 插入
-const insertSort = (arr) => {
+const insertSort1 = (arr) => {
     if (arr.length <= 1) return arr;
     const res = [arr[0]];
     for (let i = 1; i < arr.length; i++) {
@@ -75,6 +75,54 @@ const insertSort = (arr) => {
         res.splice(j, 0, arr[i]);
     }
     return res;
+}
+
+const insertSort2 = (arr) => {
+    if (arr.length <= 1) return arr;
+    for (let i = 1; i < arr.length; i++) {
+        const tmp = arr[i];
+        let pre = i - 1;
+        while (pre >= 0 && tmp < arr[pre]) {
+            arr[pre + 1] = arr[pre];
+            pre--;
+        }
+        arr[pre + 1] = tmp;
+    }
+    return arr;
+}
+
+// 希尔
+const shellSort = (arr) => {
+    for (let gap = Math.floor(arr.length / 2); gap > 0; gap = Math.floor(gap / 2)) {
+        for (let i = gap; i < arr.length; i++) {
+            const tmp = arr[i];
+            let pre = i - gap;
+            while (arr[pre] > tmp && pre >= 0) {
+                arr[pre + gap] = arr[pre];
+                pre = pre - gap;
+            }
+            arr[pre + gap] = tmp;
+        }
+    }
+    return arr;
+}
+
+// 归并
+const mergeSort = (arr) => {
+    if (arr.length <= 1) return arr;
+    const merge = (left, right) => {
+        const res = [];
+        while (left.length > 0 && right.length > 0) {
+            left[0] <= right[0] ? res.push(left.shift()) : res.push(right.shift());
+        }
+        while (left.length > 0) res.push(left.shift());
+        while (right.length > 0) res.push(right.shift());
+        return res;
+    }
+    const m = Math.floor(arr.length / 2);
+    const l = mergeSort(arr.slice(0, m));
+    const r = mergeSort(arr.slice(m));
+    return merge(l, r);
 }
 
 let arr = genArr(10);
@@ -86,4 +134,10 @@ console.log('select\n', selectSort(arr));
 arr = genArr(10);
 console.log('bubble\n', bubbleSort(arr));
 arr = genArr(10);
-console.log('insert\n', insertSort(arr));
+console.log('insert1\n', insertSort1(arr));
+arr = genArr(10);
+console.log('insert2\n', insertSort2(arr));
+arr = genArr(10);
+console.log('shell\n', shellSort(arr));
+arr = genArr(10);
+console.log('merge\n', mergeSort(arr));
