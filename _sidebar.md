@@ -2,14 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-06-07 19:14:17
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-07-26 18:44:40
- * @Description: 茶泡饭的完美代码
--->
-<!--
- * @Author: “chapaofan-zy” “1095004630@qq.com”
- * @Date: 2023-06-07 19:14:17
- * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-07-15 20:11:11
+ * @LastEditTime: 2023-08-01 15:55:16
  * @Description: 茶泡饭的完美代码
 -->
 
@@ -28,6 +21,9 @@
   - [Promise](/JavaScript/Promise.md)
   - [事件代理](/JavaScript/Event.md)
   - [继承](/JavaScript/Extend.md)
+  - [获取 url 参数](/JavaScript/UrlParam.md)
+  - [插入大数据](/JavaScript/BigData.md)
+  - [图片懒加载](/JavaScript/LazyLoad.md)
 - [排序](/Algorithm/sort.md)
 - React
   - [Fiber](/React/Fiber.md)
