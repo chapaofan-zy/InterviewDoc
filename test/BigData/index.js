@@ -24,7 +24,7 @@ function genArr(deadline, gap) {
         len.push(tmp);
     }
     window.requestAnimationFrame(insertNode);
-    window.requestIdleCallback((d) => genArr(d, gap));
+    arr.length && window.requestIdleCallback((d) => genArr(d, gap));
 }
 
 function insertNode() {

@@ -2,7 +2,7 @@
  * @Author: “chapaofan-zy” “1095004630@qq.com”
  * @Date: 2023-07-30 15:53:02
  * @LastEditors: “chapaofan-zy” “1095004630@qq.com”
- * @LastEditTime: 2023-08-01 17:46:39
+ * @LastEditTime: 2023-08-02 11:35:53
  * @Description: 茶泡饭的完美代码
  */
 import {
@@ -78,7 +78,7 @@ function throttle(fn, delay = 500) {
 
 function myNew(constructor, ...rest) {
     const res = {};
-    res.prototype = constructor.prototype;
+    res.__proto__ = constructor.prototype;
     const obj = constructor.call(res, ...rest);
     return obj instanceof Object ? obj : res;
 }
